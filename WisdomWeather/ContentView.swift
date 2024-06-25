@@ -69,11 +69,13 @@ struct ContentView: View {
                     .padding(20)
 
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            Image("shorts")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 80, height: 80)
+                        HStack(spacing: 15) {
+                            ForEach(0..<5) { index in
+                                Image("shorts")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 80, height: 80)
+                            }
                         }
                         .padding(20)
                     }
