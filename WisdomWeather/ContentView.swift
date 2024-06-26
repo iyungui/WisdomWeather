@@ -29,7 +29,6 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                     
-                    Spacer()
                     
                     
                     HStack {
@@ -44,12 +43,14 @@ struct ContentView: View {
                     .font(.system(size: 64))
                     .padding(20)
                     
-
                     
-                    Divider()
-                        .frame(height: 1)
-                        .background(.white)
-                        .padding(.leading, 20)
+
+                    if !viewModel.weatherGuides.isEmpty {
+                        Divider()
+                            .frame(height: 1)
+                            .background(getTextColor(for: viewModel.weatherData?.temperature ?? 0))
+                            .padding(.leading, 20)
+                    }
                     
                     ForEach(viewModel.weatherGuides) { guide in
                         HStack {
@@ -66,39 +67,42 @@ struct ContentView: View {
                     
                     Divider()
                         .frame(height: 1)
-                        .background(.white)
+                        .background(getTextColor(for: viewModel.weatherData?.temperature ?? 0))
                         .padding(.leading, 20)
                     
-                    
-                    Text("현재 온도와 습도에 따라 옷차림을 추천합니다.")
-                        .font(.caption)
-                        .fontWeight(.light)
-                    
-                    Text("옷차림 추천")
-                        .font(.system(size: 40, weight: .black))
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("옷차림 추천")
+                            .font(.system(size: 40, weight: .black))
+                        
+                        Text("현재 온도와 습도에 따라 옷차림을 자동으로 추천합니다.")
+                            .font(.callout)
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
                     
 
                     ScrollView(.horizontal, showsIndicators: false) {
-                        ForEach(viewModel.clothingItems) { item in
-                            VStack {
-                                HStack(spacing: 15) {
-                                    Text(item.clothingName)
-                                        .font(.system(size: 24, weight: .medium))
-                                    
+                        HStack(spacing: 20) {
+                            ForEach(viewModel.clothingItems) { item in
+                                VStack(spacing: 15) {
                                     if let image = item.clothingImage {
                                         Image("\(image)")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 80, height: 80)
                                     }
+                                    
+                                    Text(item.clothingName)
+                                        .font(.system(size: 24, weight: .medium))
                                 }
+                                .padding(20)
                             }
-                            .padding(20)
                         }
                     }
                     Spacer()
                 }
-                .foregroundStyle(getTextColor(for: viewModel.weatherData?.temperature ?? 0))    // TODO:
+                .foregroundStyle(getTextColor(for: viewModel.weatherData?.temperature ?? 21))    // TODO:
             }
             .onAppear {
                 viewModel.requestLocation()

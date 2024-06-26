@@ -31,6 +31,9 @@ class WeatherViewModel: ObservableObject {
             }
             Task {
                 await self.fetchWeather(for: location)
+                await self.recommendOutfit()
+//                print("guide: \(self.weatherGuides)")
+//                print("clothing: \(self.clothingItems)")
             }
         }
         errorCancellable = locationManager.$error.sink { [weak self] error in
@@ -69,7 +72,8 @@ class WeatherViewModel: ObservableObject {
         )
     }
     
-    func recommendOutfit() {
+    @MainActor
+    func recommendOutfit() async {
         guard let weatherData = weatherData else { return }
         let recommendation = OutfitRecommender.recommendOutfit(for: weatherData)
         self.clothingItems = recommendation.clothingItems
