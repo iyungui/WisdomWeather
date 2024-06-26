@@ -1,0 +1,73 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+
+    },
+    "날씨 정보를 불러오는 중..." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getting weather information..."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "날씨 정보를 불러오는 중..."
+          }
+        }
+      }
+    },
+    "날씨 정보를 불러오지 못했습니다. 설정에서 위치 권한을 허용해주세요." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to retrieve weather information. Please allow location permissions in settings."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "날씨 정보를 불러오지 못했습니다. 설정에서 위치 권한을 허용해주세요."
+          }
+        }
+      }
+    },
+    "옷차림 추천" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dress recommendation"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "옷차림 추천"
+          }
+        }
+      }
+    },
+    "현재 온도와 습도에 따라 옷차림을 자동으로 추천합니다." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We automatically recommend dressing according to your current temperature and humidity."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 온도와 습도에 따라 옷차림을 자동으로 추천합니다."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

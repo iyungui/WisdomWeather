@@ -60,7 +60,7 @@ struct ContentView: View {
                     Divider()
                         .frame(height: 1)
                         .background(getTextColor(for: weatherData.temperature))
-                        .padding(.leading, 20)
+                        .padding(.horizontal, 20)
                 }
                 
                 ForEach(viewModel.weatherGuides) { guide in
