@@ -45,11 +45,11 @@ struct ContentView: View {
                 
                 HStack {
                     Text(String(format: "%.1f", weatherData.temperature))
-                        .font(.system(size: 64))
+                        .font(.system(size: 60))
                         .fontWeight(.bold)
                     Spacer()
                     Text(weatherData.condition)
-                        .font(.system(size: 30))
+                        .font(.system(size: 28))
                         .italic()
                         .fontWeight(.black)
                 }
@@ -64,10 +64,11 @@ struct ContentView: View {
                         .padding(.leading, 20)
                 }
                 
-                ForEach(viewModel.weatherGuides) { guide in
+                // UI 문제로 일단 최대 2개까지만 보이도록 함
+                ForEach(viewModel.weatherGuides.prefix(2)) { guide in
                     HStack {
                         Text("\(guide.message)")
-                            .font(.system(size: 24, weight: .medium))
+                            .font(.system(size: 22, weight: .medium))
                         
                         Spacer()
                         Image(systemName: guide.guideSymbolName)
@@ -84,10 +85,10 @@ struct ContentView: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     Text("옷차림 추천")
-                        .font(.system(size: 40, weight: .black))
+                        .font(.system(size: 30, weight: .black))
                     
                     Text("현재 온도와 습도에 따라 옷차림을 자동으로 추천합니다.")
-                        .font(.callout)
+                        .font(.subheadline)
                         .fontWeight(.light)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -106,7 +107,7 @@ struct ContentView: View {
                                 }
                                 
                                 Text(item.clothingName)
-                                    .font(.system(size: 24, weight: .medium))
+                                    .font(.system(size: 20, weight: .medium))
                             }
                             .padding(20)
                         }
