@@ -14,7 +14,8 @@ An app that recommends clothing based on the current weather.
 | ![Screenshot 3](</Screenshot/Simulator Screenshot - iPhone 15 Pro - 2024-06-26 at 22.40.34.png>) | ![Screenshot 4](</Screenshot/Simulator Screenshot - iPhone 15 Pro - 2024-06-26 at 22.43.08.png>) |
 
 ### Demo Video
-[![Screen Recording](</Screenshot/Screen Recording 2024-06-26 at 10.45.42 PM.mov>)](path/to/video)
+<video src="/Screenshot/Screen Recording 2024-06-26 at 10.45.42 PM.mov" width="320" height="240" controls></video>
+
 
 ## Features
 
