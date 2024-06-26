@@ -23,7 +23,8 @@ class WeatherViewModel: ObservableObject {
     private var locationCancellable: AnyCancellable?
     private var errorCancellable: AnyCancellable?
     private var cityNameCancellable: AnyCancellable?
-    
+    private var authorizationStatusCancellable: AnyCancellable?
+
     init() {
         locationCancellable = locationManager.$location.sink { [weak self] location in
             guard let self = self, let location = location else {
@@ -40,6 +41,13 @@ class WeatherViewModel: ObservableObject {
         
         cityNameCancellable = locationManager.$cityName.sink { [weak self] cityName in
             self?.cityName = cityName
+        }
+        
+        authorizationStatusCancellable = locationManager.$authorizationStatus.sink { [weak self] status in
+            guard let self = self, status == .authorizedWhenInUse || status == .authorizedAlways else {
+                return
+            }
+            self.requestLocation()
         }
     }
     

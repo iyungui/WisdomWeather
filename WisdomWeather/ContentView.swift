@@ -26,9 +26,6 @@ struct ContentView: View {
                 // TODO: temperature 따라서 Status bar color 변경
 
             }
-            .onAppear {
-                viewModel.requestLocation()
-            }
         }
     }
     
@@ -117,13 +114,21 @@ struct ContentView: View {
             }
             .foregroundStyle(getTextColor(for: weatherData.temperature))
         } else if let error = viewModel.error {
-            // TODO: 권한 재시도 요청 로직 추가
-            Text("날씨 정보를 불러오지 못했습니다. 설정에서 위치 권한을 허용해주세요.")
-                .foregroundStyle(.red)
-                .onAppear {
-                    // error handling
-                    print(error.localizedDescription)
+            VStack {
+                Text("날씨 정보를 불러오지 못했습니다. 설정에서 위치 권한을 허용해주세요.")
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                Button(action: {
+                    viewModel.requestLocation()
+                }) {
+                    Text("위치 권한 다시 요청")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                 }
+            }
+            .padding()
         } else {
             // MARK: - LOADING VIEW
             ProgressView("날씨 정보를 불러오는 중...")

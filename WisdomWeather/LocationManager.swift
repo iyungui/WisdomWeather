@@ -15,6 +15,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var location: CLLocation?
     @Published var cityName: String?
     @Published var error: Error?
+    @Published var authorizationStatus: CLAuthorizationStatus?
 
     override init() {
         super.init()
@@ -48,6 +49,18 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             if let placemark = placemarks?.first {
                 self.cityName = placemark.locality
             }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.authorizationStatus = status
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            manager.startUpdatingLocation()
+        case .denied, .restricted:
+            self.error = NSError(domain: "LocationManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "Location access denied"])
+        default:
+            break
         }
     }
 }
