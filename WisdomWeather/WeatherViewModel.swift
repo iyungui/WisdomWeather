@@ -11,25 +11,34 @@ import Combine
 import CoreLocation
 
 class WeatherViewModel: ObservableObject {
-    private let locationManger = LocationManager()
+    private let locationManager = LocationManager()
     private let weatherService = WeatherService.shared
     
     @Published var weatherData: WeatherData?
+    @Published var weatherGuides: [WeatherGuide] = []
+    @Published var clothingItems: [ClothingItem] = []
     @Published var cityName: String?
     @Published var error: Error?
-
+    
     private var locationCancellable: AnyCancellable?
     private var errorCancellable: AnyCancellable?
     private var cityNameCancellable: AnyCancellable?
     
     init() {
-        locationCancellable = locationManger.$location.sink { [weak self] location in
+        locationCancellable = locationManager.$location.sink { [weak self] location in
             guard let self = self, let location = location else {
                 return
             }
             Task {
                 await self.fetchWeather(for: location)
             }
+        }
+        errorCancellable = locationManager.$error.sink { [weak self] error in
+            self?.error = error
+        }
+        
+        cityNameCancellable = locationManager.$cityName.sink { [weak self] cityName in
+            self?.cityName = cityName
         }
     }
     
@@ -55,8 +64,11 @@ class WeatherViewModel: ObservableObject {
         )
     }
     
-    func recommendOutfit(for weatherData: WeatherData) -> WeatherClothingRecommendation {
-        return OutfitRecommender.recommendOutfit(for: weatherData)
+    func recommendOutfit() {
+        guard let weatherData = weatherData else { return }
+        let recommendation = OutfitRecommender.recommendOutfit(for: weatherData)
+        self.clothingItems = recommendation.clothingItems
+        self.weatherGuides = recommendation.weatherGuides
     }
 }
 

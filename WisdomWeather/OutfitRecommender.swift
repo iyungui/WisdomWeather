@@ -142,3 +142,4 @@ struct OutfitRecommender {
         return WeatherClothingRecommendation(clothingItems: clothingItems, weatherGuides: weatherGuides)
     }
 }
+

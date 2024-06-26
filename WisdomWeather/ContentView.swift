@@ -13,26 +13,37 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("ExtremeHot")
-                    .ignoresSafeArea()
+                if let temperature = viewModel.weatherData?.temperature {
+                    getBackgroundColor(for: temperature)
+                        .ignoresSafeArea()
+                } else {
+                    Color.white
+                        .ignoresSafeArea()
+                }
                 
                 VStack {
-                    Text("서울특별시")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .frame(maxWidth: .infinity, alignment: .center)
+                    if let cityName = viewModel.cityName {
+                        Text(cityName)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
                     
                     Spacer()
                     
+                    
                     HStack {
-                        Text("40°C")
-                            .fontWeight(.bold)
-                        Spacer()
-                        Text("비")
-                            .fontWeight(.black)
+                        if let temperature = viewModel.weatherData?.temperature, let condition = viewModel.weatherData?.condition {
+                            Text("\(temperature)")
+                                .fontWeight(.bold)
+                            Spacer()
+                            Text(condition)
+                                .fontWeight(.black)
+                        }
                     }
                     .font(.system(size: 64))
                     .padding(20)
+                    
 
                     
                     Divider()
@@ -40,13 +51,13 @@ struct ContentView: View {
                         .background(.white)
                         .padding(.leading, 20)
                     
-                    ForEach(0..<2) { index in
+                    ForEach(viewModel.weatherGuides) { guide in
                         HStack {
-                            Text("지금 비가오고 있어요! 우산을 챙기세요.")
+                            Text("\(guide.message)")
                                 .font(.system(size: 24, weight: .medium))
                             
                             Spacer()
-                            Image(systemName: "cloud.rain.fill")
+                            Image(systemName: guide.guideSymbolName)
                                 .font(.system(size: 60))
                         }
                     }
@@ -58,7 +69,7 @@ struct ContentView: View {
                         .background(.white)
                         .padding(.leading, 20)
                     
-                    
+                    // TODO: update Layout 
                     VStack(alignment: .leading, spacing: 20) {
                         Text("옷차림 추천")
                             .font(.system(size: 40, weight: .black))
@@ -83,8 +94,54 @@ struct ContentView: View {
                     }
                     Spacer()
                 }
-                .foregroundStyle(.white)
+                .foregroundStyle(getTextColor(for: viewModel.weatherData?.temperature ?? 0))    // TODO:
             }
+        }
+    }
+    
+    private func getBackgroundColor(for temperature: Double) -> Color {
+        switch temperature {
+        case 28...:
+            return Color("ExtremeHot")
+        case 23...27:
+            return Color("VeryHot")
+        case 20...22:
+            return Color("Warm")
+        case 17...19:
+            return Color("Mild")
+        case 12...16:
+            return Color("Cool")
+        case 9...11:
+            return Color("Cold")
+        case 5...8:
+            return Color("VeryCold")
+        case ..<5:
+            return Color("ExtremeCold")
+        default:
+            return Color.white
+        }
+    }
+
+    private func getTextColor(for temperature: Double) -> Color {
+        switch temperature {
+        case 28...:
+            return Color.white
+        case 23...27:
+            return Color.white
+        case 20...22:
+            return Color.black
+        case 17...19:
+            return Color.black
+        case 12...16:
+            return Color.black
+        case 9...11:
+            return Color.white
+        case 5...8:
+            return Color.white
+        case ..<5:
+            return Color.white
+        default:
+            return Color.black
         }
     }
 }
