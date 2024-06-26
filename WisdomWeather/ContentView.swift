@@ -34,7 +34,7 @@ struct ContentView: View {
                     
                     HStack {
                         if let temperature = viewModel.weatherData?.temperature, let condition = viewModel.weatherData?.condition {
-                            Text("\(temperature)")
+                            Text(String(format: "%.1f", temperature))
                                 .fontWeight(.bold)
                             Spacer()
                             Text(condition)
@@ -69,32 +69,39 @@ struct ContentView: View {
                         .background(.white)
                         .padding(.leading, 20)
                     
-                    // TODO: update Layout 
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("옷차림 추천")
-                            .font(.system(size: 40, weight: .black))
-                        
-                        Text("민소매, 반팔, 반바지, 치마")
-                            .font(.system(size: 24, weight: .medium))
-                            .multilineTextAlignment(.leading)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(20)
+                    
+                    Text("현재 온도와 습도에 따라 옷차림을 추천합니다.")
+                        .font(.caption)
+                        .fontWeight(.light)
+                    
+                    Text("옷차림 추천")
+                        .font(.system(size: 40, weight: .black))
+                    
 
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 15) {
-                            ForEach(0..<5) { index in
-                                Image("shorts")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 80, height: 80)
+                        ForEach(viewModel.clothingItems) { item in
+                            VStack {
+                                HStack(spacing: 15) {
+                                    Text(item.clothingName)
+                                        .font(.system(size: 24, weight: .medium))
+                                    
+                                    if let image = item.clothingImage {
+                                        Image("\(image)")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 80, height: 80)
+                                    }
+                                }
                             }
+                            .padding(20)
                         }
-                        .padding(20)
                     }
                     Spacer()
                 }
                 .foregroundStyle(getTextColor(for: viewModel.weatherData?.temperature ?? 0))    // TODO:
+            }
+            .onAppear {
+                viewModel.requestLocation()
             }
         }
     }

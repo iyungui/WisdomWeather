@@ -42,6 +42,11 @@ class WeatherViewModel: ObservableObject {
         }
     }
     
+    func requestLocation() {
+        locationManager.requestLocation()
+    }
+    
+    @MainActor
     func fetchWeather(for location: CLLocation) async {
         do {
             let forecast = try await weatherService.weather(for: location)
