@@ -61,7 +61,7 @@ struct ContentView: View {
                     Divider()
                         .frame(height: 1)
                         .background(getTextColor(for: weatherData.temperature))
-                        .padding(.horizontal, 20)
+                        .padding(.leading, 20)
                 }
                 
                 ForEach(viewModel.weatherGuides) { guide in
@@ -91,7 +91,7 @@ struct ContentView: View {
                         .fontWeight(.light)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
+                .padding(.horizontal, 20)
                 
                 // TODO: AUTO SCROLL VIEW
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -133,17 +133,17 @@ struct ContentView: View {
         switch temperature {
         case 28...:
             return Color("ExtremeHot")
-        case 23...27:
+        case 23..<28:
             return Color("VeryHot")
-        case 20...22:
+        case 20..<23:
             return Color("Warm")
-        case 17...19:
+        case 17..<20:
             return Color("Mild")
-        case 12...16:
+        case 12..<17:
             return Color("Cool")
-        case 9...11:
+        case 9..<12:
             return Color("Cold")
-        case 5...8:
+        case 5..<9:
             return Color("VeryCold")
         case ..<5:
             return Color("ExtremeCold")
@@ -156,17 +156,17 @@ struct ContentView: View {
         switch temperature {
         case 28...:
             return Color.white
-        case 23...27:
+        case 23..<28:
             return Color.white
-        case 20...22:
+        case 20..<23:
             return Color.black
-        case 17...19:
+        case 17..<20:
             return Color.black
-        case 12...16:
+        case 12..<17:
             return Color.black
-        case 9...11:
+        case 9..<12:
             return Color.white
-        case 5...8:
+        case 5..<9:
             return Color.white
         case ..<5:
             return Color.white

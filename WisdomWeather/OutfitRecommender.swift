@@ -23,74 +23,74 @@ struct OutfitRecommender {
                 ClothingItem(clothingName: NSLocalizedString("Shorts", comment: ""), clothingImage: Image("shorts")),
                 ClothingItem(clothingName: NSLocalizedString("Skirt", comment: ""), clothingImage: Image("skirt"))
             ])
-        case (23...27, let humidity) where humidity > 60:
+        case (23..<28, let humidity) where humidity > 60:
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("T-Shirt", comment: ""), clothingImage: Image("t-shirt")),
                 ClothingItem(clothingName: NSLocalizedString("Long-Sleeved Shirt", comment: ""), clothingImage: Image("long-sleeved-shirt")),
                 ClothingItem(clothingName: NSLocalizedString("Shorts", comment: ""), clothingImage: Image("shorts"))
             ])
-        case (23...27, _):
+        case (23..<28, _):
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Pullover", comment: ""), clothingImage: Image("pullover")),
                 ClothingItem(clothingName: NSLocalizedString("Pants-Mans", comment: ""), clothingImage: Image("pants-mans"))
             ])
-        case (20...22, let humidity) where humidity > 60:
+        case (20..<23, let humidity) where humidity > 60:
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Cardigan", comment: ""), clothingImage: Image("cardigan")),
                 ClothingItem(clothingName: NSLocalizedString("Pullover", comment: ""), clothingImage: Image("pullover")),
                 ClothingItem(clothingName: NSLocalizedString("Blouse", comment: ""), clothingImage: Image("blouse"))
             ])
-        case (20...22, _):
+        case (20..<23, _):
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Longsleeve", comment: ""), clothingImage: Image("longsleeve")),
                 ClothingItem(clothingName: NSLocalizedString("Sweatshirt", comment: ""), clothingImage: Image("sweatshirt")),
                 ClothingItem(clothingName: NSLocalizedString("Pants-Mans2", comment: ""), clothingImage: Image("pants-mans2"))
             ])
-        case (17...19, let humidity) where humidity > 60:
+        case (17..<20, let humidity) where humidity > 60:
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Windbreaker", comment: ""), clothingImage: Image("windbreaker")),
                 ClothingItem(clothingName: NSLocalizedString("Sweatshirt", comment: ""), clothingImage: Image("sweatshirt")),
                 ClothingItem(clothingName: NSLocalizedString("Pants-Mans2", comment: ""), clothingImage: Image("pants-mans2"))
             ])
-        case (17...19, _):
+        case (17..<20, _):
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Knit", comment: ""), clothingImage: Image("knit")),
                 ClothingItem(clothingName: NSLocalizedString("Cardigan", comment: ""), clothingImage: Image("cardigan")),
                 ClothingItem(clothingName: NSLocalizedString("Pants-Mans2", comment: ""), clothingImage: Image("pants-mans2"))
             ])
-        case (12...16, let humidity) where humidity > 60:
+        case (12..<17, let humidity) where humidity > 60:
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Cardigan", comment: ""), clothingImage: Image("cardigan")),
                 ClothingItem(clothingName: NSLocalizedString("Sweatshirt", comment: ""), clothingImage: Image("sweatshirt")),
                 ClothingItem(clothingName: NSLocalizedString("Pants-Mans2", comment: ""), clothingImage: Image("pants-mans2"))
             ])
-        case (12...16, _):
+        case (12..<17, _):
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Anorak", comment: ""), clothingImage: Image("anorak")),
                 ClothingItem(clothingName: NSLocalizedString("A-Down-Jacket", comment: ""), clothingImage: Image("a-down-jacket")),
                 ClothingItem(clothingName: NSLocalizedString("Pants", comment: ""), clothingImage: Image("pants")),
                 ClothingItem(clothingName: NSLocalizedString("Knit", comment: ""), clothingImage: Image("knit"))
             ])
-        case (9...11, let humidity) where humidity > 60:
+        case (9..<12, let humidity) where humidity > 60:
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("A-Down-Jacket", comment: ""), clothingImage: Image("a-down-jacket")),
                 ClothingItem(clothingName: NSLocalizedString("Jacket", comment: ""), clothingImage: Image("jacket")),
                 ClothingItem(clothingName: NSLocalizedString("Pants", comment: ""), clothingImage: Image("pants"))
             ])
-        case (9...11, _):
+        case (9..<12, _):
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Jacket", comment: ""), clothingImage: Image("jacket")),
                 ClothingItem(clothingName: NSLocalizedString("Duffle-Coat", comment: ""), clothingImage: Image("duffle-coat")),
                 ClothingItem(clothingName: NSLocalizedString("Pants", comment: ""), clothingImage: Image("pants")),
                 ClothingItem(clothingName: NSLocalizedString("Knit", comment: ""), clothingImage: Image("knit"))
             ])
-        case (5...8, let humidity) where humidity > 60:
+        case (5..<9, let humidity) where humidity > 60:
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Jacket", comment: ""), clothingImage: Image("jacket")),
                 ClothingItem(clothingName: NSLocalizedString("Pants", comment: ""), clothingImage: Image("pants")),
                 ClothingItem(clothingName: NSLocalizedString("A-Down-Jacket2", comment: ""), clothingImage: Image("a-down-jacket2"))
             ])
-        case (5...8, _):
+        case (5..<9, _):
             clothingItems.append(contentsOf: [
                 ClothingItem(clothingName: NSLocalizedString("Duffle-Coat", comment: ""), clothingImage: Image("duffle-coat")),
                 ClothingItem(clothingName: NSLocalizedString("Leggings-Womans", comment: ""), clothingImage: Image("leggings-womans")),
