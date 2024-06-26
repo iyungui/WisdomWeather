@@ -44,16 +44,18 @@ struct ContentView: View {
                 
                 HStack {
                     Text(String(format: "%.1f", weatherData.temperature))
+                        .font(.system(size: 64))
                         .fontWeight(.bold)
                     Spacer()
                     Text(weatherData.condition)
+                        .font(.system(size: 30))
+                        .italic()
                         .fontWeight(.black)
                 }
-                .font(.system(size: 64))
                 .padding(20)
                 
                 
-
+                // TODO: Localization (English, Korean)
                 if !viewModel.weatherGuides.isEmpty {
                     Divider()
                         .frame(height: 1)
@@ -90,7 +92,7 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 
-
+                // TODO: AUTO SCROLL VIEW
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(viewModel.clothingItems) { item in
@@ -113,6 +115,7 @@ struct ContentView: View {
             }
             .foregroundStyle(getTextColor(for: weatherData.temperature))
         } else if let error = viewModel.error {
+            // TODO: 권한 재시도 요청 로직 추가
             Text("날씨 정보를 불러오지 못했습니다. 설정에서 위치 권한을 허용해주세요.")
                 .foregroundStyle(.red)
                 .onAppear {
@@ -121,7 +124,6 @@ struct ContentView: View {
                 }
         } else {
             // MARK: - LOADING VIEW
-            
             ProgressView("날씨 정보를 불러오는 중...")
         }
     }
