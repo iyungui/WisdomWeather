@@ -6,3 +6,4 @@
   
 */
 "CFBundleDisplayName" = "WeatherWisdom"
+NSLocationWhenInUseUsageDescription = "-";

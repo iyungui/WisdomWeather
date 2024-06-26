@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  WisdomWeather
+
+  Created by Yungui Lee on 6/26/24.
+  
+*/
+
+// Weather Guides
+"Rainy" = "비가 내릴 수 있으니 우산을 꼭 챙기세요!";
+"Snowy" = "눈이 내릴 수 있으니 우산을 꼭 챙기세요!";
+"Windy with Padding" = "바람이 많이 불어요! 패딩을 챙기세요.";
+"Windy with Jacket" = "바람이 많이 불어요! 재킷을 챙기세요.";
+"High UV" = "자외선 지수가 높아요. 선크림을 바르세요.";
+
+// Clothing Items
+"Camisole" = "민소매";
+"T-Shirt" = "반팔 티셔츠";
+"Shorts" = "반바지";
+"Skirt" = "짧은 치마";
+"Long-Sleeved Shirt" = "얇은 셔츠";
+"Pullover" = "얇은 긴팔 티셔츠";
+"Pants-Mans" = "면바지";
+"Cardigan" = "얇은 가디건";
+"Blouse" = "블라우스";
+"Longsleeve" = "긴팔 티셔츠";
+"Sweatshirt" = "후드티";
+"Pants-Mans2" = "청바지";
+"Windbreaker" = "얇은 재킷";
+"Knit" = "얇은 니트";
+"Pants" = "면바지";
+"Anorak" = "재킷";
+"A-Down-Jacket" = "야상";
+"Jacket" = "점퍼";
+"Duffle-Coat" = "트렌치 코트";
+"Leggings-Womans" = "레깅스";
+"Scarf" = "스카프";
+"Pants-Mans3" = "내복";
+"A-Down-Jacket2" = "플리스";
+"A-Down-Jacket3" = "패딩";
+"Mittens" = "장갑";
+"Beanie" = "비니";
+"Socks" = "두꺼운 양말";

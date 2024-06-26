@@ -2,7 +2,334 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%@" : {
-
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
+    },
+    "A-Down-Jacket" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내복"
+          }
+        }
+      }
+    },
+    "A-Down-Jacket2" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플리스"
+          }
+        }
+      }
+    },
+    "A-Down-Jacket3" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "패딩"
+          }
+        }
+      }
+    },
+    "Anorak" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "재킷"
+          }
+        }
+      }
+    },
+    "Beanie" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "비니"
+          }
+        }
+      }
+    },
+    "Blouse" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "블라우스"
+          }
+        }
+      }
+    },
+    "Camisole" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "민소매"
+          }
+        }
+      }
+    },
+    "Cardigan" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "얇은 가디건"
+          }
+        }
+      }
+    },
+    "Duffle-Coat" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "트렌치 코트"
+          }
+        }
+      }
+    },
+    "High UV" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자외선 지수가 높아요. 선크림을 바르세요."
+          }
+        }
+      }
+    },
+    "Jacket" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "점퍼"
+          }
+        }
+      }
+    },
+    "Knit" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "얇은 니트"
+          }
+        }
+      }
+    },
+    "Leggings-Womans" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "레깅스"
+          }
+        }
+      }
+    },
+    "Long-Sleeved Shirt" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "얇은 셔츠"
+          }
+        }
+      }
+    },
+    "Longsleeve" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "긴팔 티셔츠"
+          }
+        }
+      }
+    },
+    "Mittens" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "장갑"
+          }
+        }
+      }
+    },
+    "Pants" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "면바지"
+          }
+        }
+      }
+    },
+    "Pants-Mans" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "면바지"
+          }
+        }
+      }
+    },
+    "Pants-Mans2" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "청바지"
+          }
+        }
+      }
+    },
+    "Pants-Mans3" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내복"
+          }
+        }
+      }
+    },
+    "Pullover" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "얇은 긴팔 티셔츠"
+          }
+        }
+      }
+    },
+    "Rainy" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "비가 내릴 수 있으니 우산을 꼭 챙기세요!"
+          }
+        }
+      }
+    },
+    "Scarf" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "스카프"
+          }
+        }
+      }
+    },
+    "Shorts" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "반바지"
+          }
+        }
+      }
+    },
+    "Skirt" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "치마"
+          }
+        }
+      }
+    },
+    "Snowy" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "눈이 내릴 수 있으니 우산을 꼭 챙기세요!"
+          }
+        }
+      }
+    },
+    "Socks" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "두꺼운 양말"
+          }
+        }
+      }
+    },
+    "Sweatshirt" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "후드티"
+          }
+        }
+      }
+    },
+    "T-Shirt" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "반팔 티셔츠"
+          }
+        }
+      }
+    },
+    "Windbreaker" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "얇은 재킷"
+          }
+        }
+      }
+    },
+    "Windy with Jacket" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "바람이 많이 불어요! 재킷을 챙기세요."
+          }
+        }
+      }
+    },
+    "Windy with Padding" : {
+      "localizations" : {
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "바람이 많이 불어요! 패딩을 챙기세요."
+          }
+        }
+      }
     },
     "날씨 정보를 불러오는 중..." : {
       "localizations" : {

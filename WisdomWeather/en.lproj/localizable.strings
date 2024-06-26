@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  WisdomWeather
+
+  Created by Yungui Lee on 6/26/24.
+  
+*/
+
+// Weather Guides
+"Rainy" = "Remember to take an umbrella, it might rain!";
+"Snowy" = "Remember to take an umbrella, it might snow!";
+"Windy with Padding" = "It's very windy! Take a padded jacket.";
+"Windy with Jacket" = "It's very windy! Take a jacket.";
+"High UV" = "High UV index. Apply sunscreen.";
+
+// Clothing Items
+"Camisole" = "Camisole";
+"T-Shirt" = "T-Shirt";
+"Shorts" = "Shorts";
+"Skirt" = "Skirt";
+"Long-Sleeved Shirt" = "Long-Sleeved Shirt";
+"Pullover" = "Pullover";
+"Pants-Mans" = "Pants";
+"Cardigan" = "Cardigan";
+"Blouse" = "Blouse";
+"Longsleeve" = "Longsleeve";
+"Sweatshirt" = "Sweatshirt";
+"Pants-Mans2" = "Jeans";
+"Windbreaker" = "Windbreaker";
+"Knit" = "Knit";
+"Pants" = "Pants";
+"Anorak" = "Anorak";
+"A-Down-Jacket" = "Field Jacket";
+"Jacket" = "Jacket";
+"Duffle-Coat" = "Trench Coat";
+"Leggings-Womans" = "Leggings";
+"Scarf" = "Scarf";
+"Pants-Mans3" = "Thermal Underwear";
+"A-Down-Jacket2" = "Fleece";
+"A-Down-Jacket3" = "Padded Jacket";
+"Mittens" = "Gloves";
+"Beanie" = "Beanie";
+"Socks" = "Thick Socks";

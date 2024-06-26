@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  WisdomWeather
+
+  Created by Yungui Lee on 6/26/24.
+  
+*/
+"CFBundleDisplayName" = "날씨의 지혜";
+"NSLocationWhenInUseUsageDescription" = "날씨의 지혜 앱에서 날씨 정보를 가져오려면 권한이 필요합니다.";

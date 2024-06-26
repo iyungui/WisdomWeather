@@ -9,7 +9,8 @@
 ## 향후 개발 기능
 - Widget (위젯) 개발
 - watchOS, macOS 개발
-- Localization (현지화- English, Korean)
+- Localization (현지화- English, Korean) - 권한 요청 부분
+
 - Clothing Image 개선
 
 
