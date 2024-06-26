@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = WeatherViewModel()
-    
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
         NavigationStack {
             ZStack {
@@ -17,7 +17,7 @@ struct ContentView: View {
                     getBackgroundColor(for: temperature)
                         .ignoresSafeArea()
                 } else {
-                    Color.white
+                    Color(colorScheme == .dark ? .black : .white)
                         .ignoresSafeArea()
                 }
                 
@@ -132,6 +132,7 @@ struct ContentView: View {
         } else {
             // MARK: - LOADING VIEW
             ProgressView("날씨 정보를 불러오는 중...")
+                .foregroundStyle(Color(colorScheme == .dark ? .black : .white))
         }
     }
     
