@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = WeatherViewModel()
+    
     var body: some View {
         NavigationStack {
             ZStack {

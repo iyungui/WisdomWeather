@@ -11,23 +11,23 @@ import SwiftUI
 func getBackgroundColor(for temperature: Double) -> Color {
     switch temperature {
     case 28...:
-        return Color.red
+        return Color("ExtremeHot")
     case 23...27:
-        return Color.orange
+        return Color("VeryHot")
     case 20...22:
-        return Color.yellow
+        return Color("Warm")
     case 17...19:
-        return Color.green
+        return Color("Mild")
     case 12...16:
-        return Color.blue
+        return Color("Cool")
     case 9...11:
-        return Color.indigo
+        return Color("Cold")
     case 5...8:
-        return Color.purple
+        return Color("VeryCold")
     case ..<5:
-        return Color.black
+        return Color("ExtremeCold")
     default:
-        return Color.gray
+        return Color.white
     }
 }
 
@@ -42,7 +42,7 @@ func getTextColor(for temperature: Double) -> Color {
     case 17...19:
         return Color.black
     case 12...16:
-        return Color.white
+        return Color.black
     case 9...11:
         return Color.white
     case 5...8:
