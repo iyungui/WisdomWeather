@@ -41,7 +41,7 @@ struct ContentView: View {
                 }
                 
                 HStack {
-                    Text(String(format: "%.1f", weatherData.temperature))
+                    Text(String(format: "%.1f°", weatherData.temperature))
                         .font(.system(size: 60))
                         .fontWeight(.bold)
                     Spacer()
