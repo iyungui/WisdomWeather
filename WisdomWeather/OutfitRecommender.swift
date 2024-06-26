@@ -132,7 +132,7 @@ struct OutfitRecommender {
         }
         
         // UV index-based recommendations
-        if weatherData.uvIndex > 5 {
+        if weatherData.uvIndex > 2 {
             weatherGuides.append(WeatherGuide(message: "자외선 지수가 높아요. 선크림을 바르세요.", guideSymbolName: "sun.max.trianglebadge.exclamationmark.fill"))
         }
         

@@ -32,8 +32,6 @@ class WeatherViewModel: ObservableObject {
             Task {
                 await self.fetchWeather(for: location)
                 await self.recommendOutfit()
-//                print("guide: \(self.weatherGuides)")
-//                print("clothing: \(self.clothingItems)")
             }
         }
         errorCancellable = locationManager.$error.sink { [weak self] error in
@@ -55,6 +53,7 @@ class WeatherViewModel: ObservableObject {
             let forecast = try await weatherService.weather(for: location)
             let currentWeather = forecast.currentWeather
             self.weatherData = self.convertToWeatherData(currentWeather: currentWeather)
+            print(weatherData ?? "Cannot found Weather Data!!")
         } catch {
             self.error = error
         }
