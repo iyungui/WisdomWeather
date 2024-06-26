@@ -23,6 +23,7 @@ struct ContentView: View {
                 
                 currentWeatherView
                 
+                // TODO: temperature 따라서 Status bar color 변경
 
             }
             .onAppear {
