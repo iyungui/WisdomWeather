@@ -87,7 +87,7 @@ struct ContentView: View {
                             ForEach(viewModel.clothingItems) { item in
                                 VStack(spacing: 15) {
                                     if let image = item.clothingImage {
-                                        Image("\(image)")
+                                        image
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 80, height: 80)
