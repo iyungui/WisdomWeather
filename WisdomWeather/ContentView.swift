@@ -83,8 +83,6 @@ struct ContentView: View {
                 }
                 .foregroundStyle(.white)
             }
-//            .navigationTitle("서울특별시")
-//            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
