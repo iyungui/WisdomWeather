@@ -12,11 +12,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> WeatherDataEntry {
-        WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
+        WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill", clothingItems: ClothingItem.sample, cityName: "NONE")
     }
 
     func getSnapshot(in context: Context, completion: @escaping (WeatherDataEntry) -> ()) {
-        let entry = WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
+        let entry = WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill", clothingItems: ClothingItem.sample, cityName: "NONE")
         completion(entry)
     }
 
@@ -27,7 +27,7 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = WeatherDataEntry(date: entryDate, condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
+            let entry = WeatherDataEntry(date: entryDate, condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill", clothingItems: ClothingItem.sample, cityName: "NONE")
             entries.append(entry)
         }
 
@@ -57,23 +57,37 @@ struct WeatherDataEntry: TimelineEntry {
         getTextColor(for: temperature)
     }
     
-    struct ClothingItem: Identifiable {
-        let id = UUID()
-        let clothingName: String
-        let clothingImage: Image?
-    }
-
-    struct WeatherGuide: Identifiable {
-        let id = UUID()
-        let message: String
-        let guideSymbolName: String
-    }
-
-    struct WeatherClothingRecommendation {
-        let clothingItems: [ClothingItem]
-        let weatherGuides: [WeatherGuide]
-    }
+    let clothingItems: [ClothingItem]
+    
+    let cityName: String
 }
+
+struct ClothingItem: Identifiable {
+    let id = UUID()
+    let clothingName: String
+    let clothingImage: Image?
+}
+
+extension ClothingItem {
+    static var sample: [ClothingItem] = [
+        ClothingItem(clothingName: "A-Down-Jacket3", clothingImage: Image("a-down-jacket3")),
+        ClothingItem(clothingName: "Duffle-Coat", clothingImage: Image("duffle-coat")),
+        ClothingItem(clothingName: "Pants-Mans3", clothingImage: Image("pants-mans3")),
+        ClothingItem(clothingName: "Scarf", clothingImage: Image("scarf")),
+    ]
+}
+
+// TODO: GUIDE WIDGET
+//    struct WeatherGuide: Identifiable {
+//        let id = UUID()
+//        let message: String
+//        let guideSymbolName: String
+//    }
+//
+//    struct WeatherClothingRecommendation {
+//        let clothingItems: [ClothingItem]
+//        let weatherGuides: [WeatherGuide]
+//    }
 
 extension WeatherDataEntry {
     func getBackgroundColor(for temperature: Double) -> Color {
@@ -127,20 +141,27 @@ extension WeatherDataEntry {
 // MARK: - 기온별 옷차림 추천 위젯
 
 struct DressRecommendationEntryView : View {
-
     var entry: Provider.Entry
 
     var body: some View {
         VStack(spacing: 10) {
-            Text(String(format: "%.1f", entry.temperature))
-                .font(.title)
-                .fontWeight(.semibold)
+            HStack {
+                Text(String(format: "%.1f", entry.temperature))
+                Image(systemName: entry.symbolName)
+            }
+            .font(.subheadline)
+            .fontWeight(.medium)
             
-            Label(entry.condition, systemImage: entry.symbolName)
-                .font(.title3)
-                .fontWeight(.medium)
-            
-            Text("Seoul")
+            HStack {
+                entry.clothingItems.last!.clothingImage!
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 30)
+                Text(entry.clothingItems.last!.clothingName)
+                    .font(.system(size: 20))
+            }
+                
+            Text(entry.cityName)
                 .font(.subheadline)
         }
         .foregroundStyle(entry.textColor)
@@ -183,7 +204,7 @@ struct CurrentWeatherEntryView : View {
                 .font(.title3)
                 .fontWeight(.medium)
             
-            Text("Seoul")
+            Text(entry.cityName)
                 .font(.subheadline)
         }
         .foregroundStyle(entry.textColor)
@@ -215,12 +236,12 @@ struct CurrentWeatherWidget: Widget {
 #Preview(as: .systemSmall) {
     DressRecommendationWidget()
 } timeline: {
-    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 14.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
-    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
+    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 14.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill", clothingItems: ClothingItem.sample, cityName: "Seoul")
+    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill", clothingItems: ClothingItem.sample, cityName: "Seoul")
 }
 
 #Preview(as: .systemSmall) {
     CurrentWeatherWidget()
 } timeline: {
-    WeatherDataEntry(date: Date(), condition: "Snow", temperature: 9.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "snowflake")
+    WeatherDataEntry(date: Date(), condition: "Snow", temperature: 9.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "snowflake", clothingItems: ClothingItem.sample, cityName: "Seoul")
 }
