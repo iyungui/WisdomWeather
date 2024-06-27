@@ -22,9 +22,6 @@ struct ContentView: View {
                 }
                 
                 currentWeatherView
-                
-                // TODO: temperature 따라서 Status bar color 변경
-
             }
         }
     }
@@ -113,7 +110,7 @@ struct ContentView: View {
                 Spacer()
             }
             .foregroundStyle(getTextColor(for: weatherData.temperature))
-        } else if let error = viewModel.error {
+        } else if viewModel.error != nil {
             VStack {
                 Text("날씨 정보를 불러오지 못했습니다. 설정에서 위치 권한을 허용해주세요.")
                     .foregroundColor(.red)
