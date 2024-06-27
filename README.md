@@ -13,6 +13,8 @@ An app that recommends clothing based on the current weather.
 |---|---|
 | ![Screenshot 3](</Screenshot/Simulator Screenshot - iPhone 15 Pro - 2024-06-26 at 22.40.34.png>) | ![Screenshot 4](</Screenshot/Simulator Screenshot - iPhone 15 Pro - 2024-06-26 at 22.43.08.png>) |
 
+![](</Screenshot/Screenshot 2024-06-27 at 2.26.38 PM.png>)
+
 ### Demo Video
 
 https://github.com/iyungui/WisdomWeather/assets/121233350/01b562fc-e627-483a-9529-ccc6d967098d
@@ -73,6 +75,13 @@ This section outlines the planned features and enhancements for Weather Wisdom
 
 You can change the simulator’s language settings as shown above.
 (Edit Scheme → Run → Options → App Language)
+
+## How To Test Widget
+
+![Widget Test](</Screenshot/Screenshot 2024-06-27 at 2.22.35 PM.png>)
+
+This app has multiple widgets (Your Current Weather, Dress Recommendation).
+So, if you want to test another widget, edit Scheme - **kind value** in WidgetKit-Environment.
 
 ## License
 

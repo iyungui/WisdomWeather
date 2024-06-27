@@ -13,6 +13,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let geocoder = CLGeocoder()
 
     @Published var location: CLLocation? {
+        // 새로운 location값이 저장된 직후에 saveLocationToAppGroup 호출 - location 프로퍼티의 값이 반드시 초기화 되어 있어야 함
         didSet {
             saveLocationToAppGroup()
         }
@@ -68,6 +69,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
+    // @MainActor
     private func saveLocationToAppGroup() {
         guard let location = location else { return }
         let userDefaults = UserDefaults(suiteName: "group.com.iyungui.WisdomWeather")
