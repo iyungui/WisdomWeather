@@ -48,6 +48,7 @@ This section outlines the planned features and enhancements for Weather Wisdom
 - VoiceOver support for visually impaired users
 - Diverse and dynamic clothing recommendation system based on hourly temperature changes
 - Development of widgets
+    - [Understanding Container Background for Widget in iOS 17](https://swiftsenpai.com/development/widget-container-background/)
 - Expansion to watchOS and macOS platforms
 - Localization (support for English and Korean) including permission requests
 

@@ -53,6 +53,10 @@ struct WeatherDataEntry: TimelineEntry {
         getBackgroundColor(for: temperature)
     }
     
+    var textColor: Color {
+        getTextColor(for: temperature)
+    }
+    
     struct ClothingItem: Identifiable {
         let id = UUID()
         let clothingName: String
@@ -119,6 +123,7 @@ extension WeatherDataEntry {
     }
 }
 
+
 // MARK: - 기온별 옷차림 추천 위젯
 
 struct DressRecommendationEntryView : View {
@@ -126,12 +131,19 @@ struct DressRecommendationEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
+            Text(String(format: "%.1f", entry.temperature))
+                .font(.title)
+                .fontWeight(.semibold)
             
-
-            Text("Emoji:")
-            Text(entry.condition)
+            Label(entry.condition, systemImage: entry.symbolName)
+                .font(.title3)
+                .fontWeight(.medium)
+            
+            Text("Seoul")
+                .font(.subheadline)
         }
+        .foregroundStyle(entry.textColor)
     }
 }
 
@@ -142,13 +154,14 @@ struct DressRecommendationWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 DressRecommendationEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
+                    .containerBackground(entry.backgroundColor, for: .widget)
             } else {
                 DressRecommendationEntryView(entry: entry)
                     .padding()
                     .background()
             }
         }
+
         .configurationDisplayName("Dress recommendation")
         .description("This recommends dressing according to your current weather.")
     }
@@ -161,13 +174,19 @@ struct CurrentWeatherEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.condition)
+        VStack(spacing: 10) {
+            Text(String(format: "%.1f", entry.temperature))
+                .font(.title)
+                .fontWeight(.semibold)
+            
+            Label(entry.condition, systemImage: entry.symbolName)
+                .font(.title3)
+                .fontWeight(.medium)
+            
+            Text("Seoul")
+                .font(.subheadline)
         }
+        .foregroundStyle(entry.textColor)
     }
 }
 
@@ -178,7 +197,7 @@ struct CurrentWeatherWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 CurrentWeatherEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
+                    .containerBackground(entry.backgroundColor, for: .widget)
             } else {
                 CurrentWeatherEntryView(entry: entry)
                     .padding()
@@ -196,12 +215,12 @@ struct CurrentWeatherWidget: Widget {
 #Preview(as: .systemSmall) {
     DressRecommendationWidget()
 } timeline: {
-    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
+    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 14.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
     WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
 }
 
 #Preview(as: .systemSmall) {
     CurrentWeatherWidget()
 } timeline: {
-    WeatherDataEntry(date: Date(), condition: "frf", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
+    WeatherDataEntry(date: Date(), condition: "Snow", temperature: 9.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "snowflake")
 }
