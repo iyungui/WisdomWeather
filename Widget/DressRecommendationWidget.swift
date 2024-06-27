@@ -8,24 +8,26 @@
 import WidgetKit
 import SwiftUI
 
+// MARK: - PROVIDER
+
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+    func placeholder(in context: Context) -> WeatherDataEntry {
+        WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+    func getSnapshot(in context: Context, completion: @escaping (WeatherDataEntry) -> ()) {
+        let entry = WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
+        var entries: [WeatherDataEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
+            let entry = WeatherDataEntry(date: entryDate, condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
             entries.append(entry)
         }
 
@@ -34,27 +36,104 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+// MARK: - ENTRY
+
+struct WeatherDataEntry: TimelineEntry {
     let date: Date
-    let emoji: String
+    
+    let condition: String
+    let temperature: Double
+    let humidity: Double
+    let precipitationIntensity: Double
+    let windSpeed: Double
+    let uvIndex: Int
+    let symbolName: String
+    
+    var backgroundColor: Color {
+        getBackgroundColor(for: temperature)
+    }
+    
+    struct ClothingItem: Identifiable {
+        let id = UUID()
+        let clothingName: String
+        let clothingImage: Image?
+    }
+
+    struct WeatherGuide: Identifiable {
+        let id = UUID()
+        let message: String
+        let guideSymbolName: String
+    }
+
+    struct WeatherClothingRecommendation {
+        let clothingItems: [ClothingItem]
+        let weatherGuides: [WeatherGuide]
+    }
 }
 
-struct WidgetEntryView : View {
+extension WeatherDataEntry {
+    func getBackgroundColor(for temperature: Double) -> Color {
+        switch temperature {
+        case 28...:
+            return Color("ExtremeHot")
+        case 23..<28:
+            return Color("VeryHot")
+        case 20..<23:
+            return Color("Warm")
+        case 17..<20:
+            return Color("Mild")
+        case 12..<17:
+            return Color("Cool")
+        case 9..<12:
+            return Color("Cold")
+        case 5..<9:
+            return Color("VeryCold")
+        case ..<5:
+            return Color("ExtremeCold")
+        default:
+            return Color.white
+        }
+    }
 
-    var entry: Provider.Entry
-
-    var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.emoji)
+    func getTextColor(for temperature: Double) -> Color {
+        switch temperature {
+        case 28...:
+            return Color.white
+        case 23..<28:
+            return Color.white
+        case 20..<23:
+            return Color.black
+        case 17..<20:
+            return Color.black
+        case 12..<17:
+            return Color.black
+        case 9..<12:
+            return Color.white
+        case 5..<9:
+            return Color.white
+        case ..<5:
+            return Color.white
+        default:
+            return Color.black
         }
     }
 }
 
 // MARK: - 기온별 옷차림 추천 위젯
+
+struct DressRecommendationEntryView : View {
+
+    var entry: Provider.Entry
+
+    var body: some View {
+        VStack {
+            
+
+            Text("Emoji:")
+            Text(entry.condition)
+        }
+    }
+}
 
 struct DressRecommendationWidget: Widget {
     let kind: String = "com.WeatherWisdom.Widget-dress-recommend"
@@ -62,10 +141,10 @@ struct DressRecommendationWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
-                WidgetEntryView(entry: entry)
+                DressRecommendationEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
             } else {
-                WidgetEntryView(entry: entry)
+                DressRecommendationEntryView(entry: entry)
                     .padding()
                     .background()
             }
@@ -77,24 +156,52 @@ struct DressRecommendationWidget: Widget {
 
 // MARK: - 현재 날씨 위젯
 
+struct CurrentWeatherEntryView : View {
+
+    var entry: Provider.Entry
+
+    var body: some View {
+        VStack {
+            Text("Time:")
+            Text(entry.date, style: .time)
+
+            Text("Emoji:")
+            Text(entry.condition)
+        }
+    }
+}
+
 struct CurrentWeatherWidget: Widget {
     let kind: String = "com.WeatherWisdom.Widget-current-weather"
+
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { _ in }
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            if #available(iOS 17.0, *) {
+                CurrentWeatherEntryView(entry: entry)
+                    .containerBackground(.fill.tertiary, for: .widget)
+            } else {
+                CurrentWeatherEntryView(entry: entry)
+                    .padding()
+                    .background(Color(UIColor.systemBackground))
+            }
+        }
+        .configurationDisplayName("Current Weather")
+        .description("This widget shows the current weather information.")
     }
-    
 }
+
+
+// MARK: - PREVIEWS
 
 #Preview(as: .systemSmall) {
     DressRecommendationWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
+    WeatherDataEntry(date: Date(), condition: "Rainy", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
 }
 
 #Preview(as: .systemSmall) {
     CurrentWeatherWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
-    SimpleEntry(date: .now, emoji: "🤩")
+    WeatherDataEntry(date: Date(), condition: "frf", temperature: 19.9, humidity: 20, precipitationIntensity: 1, windSpeed: 21, uvIndex: 5, symbolName: "cloud.rain.fill")
 }
