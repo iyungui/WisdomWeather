@@ -5,14 +5,18 @@
 //  Created by Yungui Lee on 6/26/24.
 //
 
-import Foundation
 import CoreLocation
+import SwiftUI
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let manager = CLLocationManager()
     private let geocoder = CLGeocoder()
 
-    @Published var location: CLLocation?
+    @Published var location: CLLocation? {
+        didSet {
+            saveLocationToAppGroup()
+        }
+    }
     @Published var cityName: String?
     @Published var error: Error?
     @Published var authorizationStatus: CLAuthorizationStatus?
@@ -35,7 +39,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         self.error = error
     }
     
@@ -63,4 +67,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             break
         }
     }
+    
+    private func saveLocationToAppGroup() {
+        guard let location = location else { return }
+        let userDefaults = UserDefaults(suiteName: "group.com.iyungui.WisdomWeather")
+        userDefaults?.set(location.coordinate.latitude, forKey: "latitude")
+        userDefaults?.set(location.coordinate.longitude, forKey: "longitude")
+    }
 }
+
