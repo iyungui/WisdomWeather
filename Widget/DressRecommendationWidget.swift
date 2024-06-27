@@ -40,6 +40,7 @@ struct SimpleEntry: TimelineEntry {
 }
 
 struct WidgetEntryView : View {
+
     var entry: Provider.Entry
 
     var body: some View {
@@ -53,8 +54,10 @@ struct WidgetEntryView : View {
     }
 }
 
-struct Widget: SwiftUI.Widget {
-    let kind: String = "Widget"
+// MARK: - 기온별 옷차림 추천 위젯
+
+struct DressRecommendationWidget: Widget {
+    let kind: String = "com.WeatherWisdom.Widget-dress-recommend"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
@@ -67,13 +70,30 @@ struct Widget: SwiftUI.Widget {
                     .background()
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Dress recommendation")
+        .description("This recommends dressing according to your current weather.")
     }
 }
 
+// MARK: - 현재 날씨 위젯
+
+struct CurrentWeatherWidget: Widget {
+    let kind: String = "com.WeatherWisdom.Widget-current-weather"
+    var body: some WidgetConfiguration {
+        StaticConfiguration(kind: kind, provider: Provider()) { _ in }
+    }
+    
+}
+
 #Preview(as: .systemSmall) {
-    Widget()
+    DressRecommendationWidget()
+} timeline: {
+    SimpleEntry(date: .now, emoji: "😀")
+    SimpleEntry(date: .now, emoji: "🤩")
+}
+
+#Preview(as: .systemSmall) {
+    CurrentWeatherWidget()
 } timeline: {
     SimpleEntry(date: .now, emoji: "😀")
     SimpleEntry(date: .now, emoji: "🤩")
