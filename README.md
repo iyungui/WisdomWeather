@@ -91,4 +91,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Twitter: [@iyungui](https://x.com/iyungui)
 - Email: rsdbddml@gmail.com
-- Blog: [iyungui.com](https://heroic-horse-c3d1d3.netlify.app)
+- Blog: [iyungui.com](https://iyungui.me)
