@@ -72,6 +72,8 @@
 		979A99382C2CFCA600166740 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		97C02D022C2CF51F007A1499 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		97C02D042C2CF51F007A1499 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CEDD63F72DD8715E000C07B2 /* WisdomWeatherRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WisdomWeatherRelease.entitlements; sourceTree = "<group>"; };
+		CEDD63F82DD87186000C07B2 /* WidgetExtensionRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtensionRelease.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		9725A00B2C2B09520093FAF1 = {
 			isa = PBXGroup;
 			children = (
+				CEDD63F82DD87186000C07B2 /* WidgetExtensionRelease.entitlements */,
 				979A99382C2CFCA600166740 /* WidgetExtension.entitlements */,
 				9725A0162C2B09520093FAF1 /* WisdomWeather */,
 				979A992A2C2CF7ED00166740 /* Widget */,
@@ -117,6 +120,7 @@
 		9725A0162C2B09520093FAF1 /* WisdomWeather */ = {
 			isa = PBXGroup;
 			children = (
+				CEDD63F72DD8715E000C07B2 /* WisdomWeatherRelease.entitlements */,
 				9725A0252C2B0A4B0093FAF1 /* WisdomWeather.entitlements */,
 				9725A0172C2B09520093FAF1 /* WisdomWeatherApp.swift */,
 				9725A0262C2B9A8D0093FAF1 /* WeatherViewModel.swift */,
@@ -432,14 +436,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = WisdomWeather/WisdomWeather.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WisdomWeather/Preview Content\"";
-				DEVELOPMENT_TEAM = 285ZKW5MPR;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 285ZKW5MPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = WeatherWisdom;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permission is required to import weather information from $(PRODUCT_NAME).";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permission is required to import weather information from WisdomWeather.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,8 +455,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iyungui.WisdomWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = me.iyungui.WisdomWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = wisdomWeather_dev;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,15 +474,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WisdomWeather/WisdomWeather.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = WisdomWeather/WisdomWeatherRelease.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WisdomWeather/Preview Content\"";
-				DEVELOPMENT_TEAM = 285ZKW5MPR;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 285ZKW5MPR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = WeatherWisdom;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permission is required to import weather information from $(PRODUCT_NAME).";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Permission is required to import weather information from WisdomWeather.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -481,8 +494,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iyungui.WisdomWeather;
+				PRODUCT_BUNDLE_IDENTIFIER = me.iyungui.WisdomWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = wisdomWeather_appstore;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -495,12 +513,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 285ZKW5MPR;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 285ZKW5MPR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,8 +528,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iyungui.WisdomWeather.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = me.iyungui.WisdomWeather.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "wisdomWeather widget_dev";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -522,13 +544,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = WidgetExtension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = WidgetExtensionRelease.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 285ZKW5MPR;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 285ZKW5MPR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Widget;
+				INFOPLIST_KEY_CFBundleDisplayName = WeatherWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,8 +560,10 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iyungui.WisdomWeather.Widget;
+				PRODUCT_BUNDLE_IDENTIFIER = me.iyungui.WisdomWeather.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "wisdomWeather widget_appstore";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
