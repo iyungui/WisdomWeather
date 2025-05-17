@@ -1,7 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "%@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -10,6 +14,12 @@
           }
         }
       }
+    },
+    "%lld m/s" : {
+
+    },
+    "%lld%%" : {
+
     },
     "A-Down-Jacket" : {
       "localizations" : {
@@ -301,6 +311,9 @@
         }
       }
     },
+    "UV %lld" : {
+
+    },
     "Windbreaker" : {
       "localizations" : {
         "ko" : {
@@ -331,6 +344,9 @@
         }
       }
     },
+    "WisdomWeather" : {
+
+    },
     "날씨 정보를 불러오는 중..." : {
       "localizations" : {
         "en" : {
@@ -347,7 +363,11 @@
         }
       }
     },
+    "날씨 정보를 불러오지 못했습니다" : {
+
+    },
     "날씨 정보를 불러오지 못했습니다. 설정에서 위치 권한을 허용해주세요." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -363,7 +383,23 @@
         }
       }
     },
+    "날씨 정보를 제공하기 위해 위치 권한이 필요합니다. 설정에서 위치 권한을 허용해주세요." : {
+
+    },
+    "다시 시도" : {
+
+    },
+    "설정" : {
+
+    },
+    "오늘의 날씨 안내" : {
+
+    },
+    "오늘의 옷차림 추천" : {
+
+    },
     "옷차림 추천" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -380,6 +416,7 @@
       }
     },
     "위치 권한 다시 요청" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -395,7 +432,27 @@
         }
       }
     },
+    "위치 권한 요청" : {
+
+    },
+    "위치 권한 필요" : {
+
+    },
+    "취소" : {
+
+    },
+    "현재 온도 %@와 습도 %lld%%에 맞는 옷차림입니다." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "현재 온도 %1$@와 습도 %2$lld%%에 맞는 옷차림입니다."
+          }
+        }
+      }
+    },
     "현재 온도와 습도에 따라 옷차림을 자동으로 추천합니다." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

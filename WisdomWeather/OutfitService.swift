@@ -1,5 +1,5 @@
 //
-//  OutfitRecommender.swift
+//  OutfitService.swift
 //  WisdomWeather
 //
 //  Created by Yungui Lee on 6/26/24.
@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct OutfitRecommender {
-    static func recommendOutfit(for weatherData: WeatherData) -> WeatherClothingRecommendation {
-        
+class OutfitService {
+    // 날씨에 따른 옷차림 추천
+    func recommendOutfit(for weatherData: WeatherData) -> WeatherClothingRecommendation {
         var clothingItems = [ClothingItem]()
         var weatherGuides = [WeatherGuide]()
         
@@ -139,5 +139,3 @@ struct OutfitRecommender {
         return WeatherClothingRecommendation(clothingItems: clothingItems, weatherGuides: weatherGuides)
     }
 }
-
-
