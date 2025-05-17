@@ -11,7 +11,7 @@ import Combine
 import CoreLocation
 
 class WeatherViewModel: ObservableObject {
-    private let locationManager = LocationManager()
+    private let locationManager = LocationService()
     private let weatherService = WeatherService.shared
     
     @Published var weatherData: WeatherData?

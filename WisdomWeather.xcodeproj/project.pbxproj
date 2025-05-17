@@ -13,7 +13,7 @@
 		9725A01F2C2B09550093FAF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9725A01E2C2B09550093FAF1 /* Preview Assets.xcassets */; };
 		9725A0272C2B9A8D0093FAF1 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9725A0262C2B9A8D0093FAF1 /* WeatherViewModel.swift */; };
 		9725A0292C2B9A9A0093FAF1 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9725A0282C2B9A9A0093FAF1 /* WeatherData.swift */; };
-		9725A02B2C2B9B8A0093FAF1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9725A02A2C2B9B8A0093FAF1 /* LocationManager.swift */; };
+		9725A02B2C2B9B8A0093FAF1 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9725A02A2C2B9B8A0093FAF1 /* LocationService.swift */; };
 		9725A02D2C2BA9410093FAF1 /* WeatherClothingRecommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9725A02C2C2BA9410093FAF1 /* WeatherClothingRecommendation.swift */; };
 		9725A02F2C2BAA020093FAF1 /* OutfitRecommender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9725A02E2C2BAA020093FAF1 /* OutfitRecommender.swift */; };
 		9725A0332C2BE85E0093FAF1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9725A0322C2BE85E0093FAF1 /* Localizable.xcstrings */; };
@@ -59,7 +59,7 @@
 		9725A0252C2B0A4B0093FAF1 /* WisdomWeather.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WisdomWeather.entitlements; sourceTree = "<group>"; };
 		9725A0262C2B9A8D0093FAF1 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		9725A0282C2B9A9A0093FAF1 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
-		9725A02A2C2B9B8A0093FAF1 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		9725A02A2C2B9B8A0093FAF1 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9725A02C2C2BA9410093FAF1 /* WeatherClothingRecommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClothingRecommendation.swift; sourceTree = "<group>"; };
 		9725A02E2C2BAA020093FAF1 /* OutfitRecommender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitRecommender.swift; sourceTree = "<group>"; };
 		9725A0322C2BE85E0093FAF1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				9725A0282C2B9A9A0093FAF1 /* WeatherData.swift */,
 				9725A02C2C2BA9410093FAF1 /* WeatherClothingRecommendation.swift */,
 				9725A02E2C2BAA020093FAF1 /* OutfitRecommender.swift */,
-				9725A02A2C2B9B8A0093FAF1 /* LocationManager.swift */,
+				9725A02A2C2B9B8A0093FAF1 /* LocationService.swift */,
 				9725A0192C2B09520093FAF1 /* ContentView.swift */,
 				9725A01B2C2B09550093FAF1 /* Assets.xcassets */,
 				9725A01D2C2B09550093FAF1 /* Preview Content */,
@@ -271,7 +271,7 @@
 			files = (
 				9725A01A2C2B09520093FAF1 /* ContentView.swift in Sources */,
 				9725A0272C2B9A8D0093FAF1 /* WeatherViewModel.swift in Sources */,
-				9725A02B2C2B9B8A0093FAF1 /* LocationManager.swift in Sources */,
+				9725A02B2C2B9B8A0093FAF1 /* LocationService.swift in Sources */,
 				9725A0292C2B9A9A0093FAF1 /* WeatherData.swift in Sources */,
 				9725A0182C2B09520093FAF1 /* WisdomWeatherApp.swift in Sources */,
 				9725A02F2C2BAA020093FAF1 /* OutfitRecommender.swift in Sources */,
